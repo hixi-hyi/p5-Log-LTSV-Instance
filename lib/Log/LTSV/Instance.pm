@@ -44,11 +44,12 @@ sub new {
     my $flatten = Log::LTSV::Instance::Flatten->new;
 
     bless {
-        rotatelogs => $rotatelogs,
-        logger     => $logger,
-        level      => $level,
-        sticks     => {},
-        _flatten   => $flatten,
+        rotatelogs  => $rotatelogs,
+        logger      => $logger,
+        level       => $level,
+        sticks      => {},
+        default_key => $args{default_key} || 'message',
+        _flatten    => $flatten,
     }, $class;
 }
 
@@ -76,7 +77,11 @@ sub print {
     my ($self, $level, @args) = @_;
     return if ($LOG_LEVEL_MAP{$level} < $self->{level});
 
-    @args = %{ $args[0] } if ref $args[0] eq 'HASH';
+    if (ref $args[0] eq 'HASH') {
+        @args = %{ $args[0] };
+    } elsif ( scalar @args == 1 && ref $args[0] eq '' ) {
+        @args = ( $self->{default_key} => $args[0] );
+    }
 
     my @msgs;
 
@@ -119,6 +124,8 @@ Log::LTSV::Instance - LTSV logger
 =head1 DESCRIPTION
 
 Log::LTSV::Instance is LTSV logger.
+
+cf. http://ltsv.org/
 
 =head1 METHODS
 
@@ -165,6 +172,7 @@ Log::LTSV::Instance is LTSV logger.
     # time:2015-03-06T22:27:40      log_level:CRITICAL    id:1      meta.file:t/print.t     meta.line:115       msg:hungup
     $logger->info(msg => 'hungup');
     # time:2015-03-06T22:27:40      log_level:INFO    id:1      meta.file:t/print.t     meta.line:115       msg:hungup
+
 
 =head1 LICENSE
 
