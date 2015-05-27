@@ -135,6 +135,23 @@ subtest 'hashref' => sub {
     },
 };
 
+subtest 'scalar' => sub {
+    my $log = '';
+    my $logger = Log::LTSV::Instance->new(
+        logger => sub { $log .= shift },
+    );
+    $logger->crit('hungup');
+
+    chomp($log);
+    my %map = ( map { split ':', $_, 2 } split "\t", $log);
+
+    cmp_deeply \%map, {
+        time      => ignore,
+        log_level => 'CRITICAL',
+        message   => 'hungup',
+    },
+};
+
 subtest 'File::RotateLogs' => sub {
     my ($fh, $filename) = File::Temp::tempfile( UNLINK => 1 );
     my $logger = Log::LTSV::Instance->new(
