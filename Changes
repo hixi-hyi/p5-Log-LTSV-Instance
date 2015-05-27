@@ -2,6 +2,11 @@ Revision history for Perl extension Log-LTSV-Instance
 
 {{$NEXT}}
 
+0.02 2015-05-27T08:52:43Z
+
+    - support scalar value
+    - add link [ltsv.org] https://github.com/hixi-hyi/p5-Log-LTSV-Instance/issues/1
+
 0.01 2015-03-07T13:07:56Z
 
     - original version

@@ -8,7 +8,7 @@ use Data::Dumper;
 use Carp;
 use Log::LTSV::Instance::Flatten;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
 my %LOG_LEVEL_MAP = (
     DEBUG    => 1,
