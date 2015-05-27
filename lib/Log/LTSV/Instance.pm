@@ -44,11 +44,12 @@ sub new {
     my $flatten = Log::LTSV::Instance::Flatten->new;
 
     bless {
-        rotatelogs => $rotatelogs,
-        logger     => $logger,
-        level      => $level,
-        sticks     => {},
-        _flatten   => $flatten,
+        rotatelogs  => $rotatelogs,
+        logger      => $logger,
+        level       => $level,
+        sticks      => {},
+        default_key => $args{default_key} || 'message',
+        _flatten    => $flatten,
     }, $class;
 }
 
@@ -79,7 +80,7 @@ sub print {
     if (ref $args[0] eq 'HASH') {
         @args = %{ $args[0] };
     } elsif ( scalar @args == 1 && ref $args[0] eq '' ) {
-        @args = ( message => $args[0] );
+        @args = ( $self->{default_key} => $args[0] );
     }
 
     my @msgs;
