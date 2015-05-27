@@ -124,6 +124,8 @@ Log::LTSV::Instance - LTSV logger
 
 Log::LTSV::Instance is LTSV logger.
 
+cf. http://ltsv.org/
+
 =head1 METHODS
 
 =head2 new

@@ -16,6 +16,8 @@ Log::LTSV::Instance - LTSV logger
 
 Log::LTSV::Instance is LTSV logger.
 
+cf. http://ltsv.org/
+
 # METHODS
 
 ## new
