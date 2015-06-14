@@ -67,9 +67,19 @@ sub sticks {
     }
 }
 
+sub _escape {
+    my ($self, $val) = @_;
+
+    $val =~ s/\t/\\t/;
+    $val =~ s/\n/\\n/;
+
+    return $val;
+}
+
 sub labeled_values {
     my ($self, $key, $value) = @_;
     my %lv = $self->{_flatten}->flatten($key, $value);
+    $lv{$_} = $self->_escape($lv{$_}) for ( keys %lv );
     map { join ':', $_, $lv{$_} } keys %lv;
 }
 
