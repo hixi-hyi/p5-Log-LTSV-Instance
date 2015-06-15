@@ -2,6 +2,9 @@ Revision history for Perl extension Log-LTSV-Instance
 
 {{$NEXT}}
 
+0.03 2015-06-15T07:15:11Z
+    - escape tab and line feed (murooka) https://github.com/hixi-hyi/p5-Log-LTSV-Instance/pull/3
+
 0.02 2015-05-27T08:52:43Z
 
     - support scalar value

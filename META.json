@@ -70,5 +70,8 @@
          "web" : "https://github.com/hixi-hyi/p5-Log-LTSV-Instance"
       }
    },
-   "version" : "0.02"
+   "version" : "0.03",
+   "x_contributors" : [
+      "Naoki Yaguchi <murooka.1129.x50@gmail.com>"
+   ]
 }
