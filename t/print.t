@@ -253,5 +253,22 @@ subtest 'compare' => sub {
     cmp_deeply \%loaf_map, \%raw_map;
 };
 
+subtest 'escape' => sub {
+    my $log = '';
+    my $logger = Log::LTSV::Instance->new(
+        logger => sub { $log .= shift },
+    );
+
+    $logger->crit(message => "tab \t, line feed\n");
+
+    chomp($log);
+    my %map = ( map { split ':', $_, 2 } split "\t", $log);
+
+    cmp_deeply \%map, {
+        time      => ignore,
+        log_level => 'CRITICAL',
+        message   => 'tab \t, line feed\n',
+    },
+};
 
 done_testing;
