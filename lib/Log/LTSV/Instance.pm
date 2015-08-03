@@ -31,10 +31,9 @@ sub new {
     } elsif (not defined $args{logfile}) {
         $logger = sub { print @_ };
     } else {
-        my $maxage = $args{maxage} || 60 * 60 * 24 * 1;
         my $rotatelogs = File::RotateLogs->new(
             logfile      => $args{logfile},
-            maxage       => $maxage,
+            $args{maxage} ? ( maxage => $args{maxage} ) : (),
             $args{linkname} ? ( linkname     => $args{linkname} ) : (),
             $args{rotationtime} ? ( rotationtime => $args{rotationtime} ) : (),
         );
