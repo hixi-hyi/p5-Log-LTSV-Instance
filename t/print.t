@@ -259,7 +259,7 @@ subtest 'escape' => sub {
         logger => sub { $log .= shift },
     );
 
-    $logger->crit(message => "tab \t, line feed\n");
+    $logger->crit(message => "tab \t\t, line feed\n\n");
 
     chomp($log);
     my %map = ( map { split ':', $_, 2 } split "\t", $log);
@@ -267,7 +267,7 @@ subtest 'escape' => sub {
     cmp_deeply \%map, {
         time      => ignore,
         log_level => 'CRITICAL',
-        message   => 'tab \t, line feed\n',
+        message   => 'tab \t\t, line feed\n\n',
     },
 };
 
