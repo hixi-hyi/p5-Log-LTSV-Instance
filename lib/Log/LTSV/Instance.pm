@@ -69,8 +69,8 @@ sub sticks {
 sub _escape {
     my ($self, $val) = @_;
 
-    $val =~ s/\t/\\t/;
-    $val =~ s/\n/\\n/;
+    $val =~ s/\t/\\t/g;
+    $val =~ s/\n/\\n/g;
 
     return $val;
 }
