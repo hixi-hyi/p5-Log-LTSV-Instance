@@ -59,6 +59,8 @@ cf. http://ltsv.org/
     $logger->info(msg => 'hungup');
     # time:2015-03-06T22:27:40      log_level:INFO    id:1      meta.file:t/print.t     meta.line:115       msg:hungup
 
+
+
 # LICENSE
 
 Copyright (C) Hiroyoshi Houchi.

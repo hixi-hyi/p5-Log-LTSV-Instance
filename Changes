@@ -1,6 +1,9 @@
-Revision history for Perl extension Log-LTSV-Instance
+filetype plugin indent on
 
 {{$NEXT}}
+
+0.05 2015-12-03T03:25:46Z
+    - escape multiple (murooka) https://github.com/hixi-hyi/p5-Log-LTSV-Instance/pull/5
 
 0.04 2015-08-03T09:20:01Z
     - fix default maxage (murooka) https://github.com/hixi-hyi/p5-Log-LTSV-Instance/pull/4
