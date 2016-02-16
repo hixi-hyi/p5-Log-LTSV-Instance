@@ -33,7 +33,7 @@ sub new {
     } else {
         my $rotatelogs = File::RotateLogs->new(
             logfile      => $args{logfile},
-            $args{maxage} ? ( maxage => $args{maxage} ) : (),
+            defined $args{maxage} ? ( maxage => $args{maxage} ) : (),
             $args{linkname} ? ( linkname     => $args{linkname} ) : (),
             $args{rotationtime} ? ( rotationtime => $args{rotationtime} ) : (),
         );
