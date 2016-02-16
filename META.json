@@ -4,7 +4,7 @@
       "Hiroyoshi Houchi <git@hixi-hyi.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v3.0.0, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "Minilla/v3.0.1, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -70,7 +70,7 @@
          "web" : "https://github.com/hixi-hyi/p5-Log-LTSV-Instance"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Naoki Yaguchi <murooka.1129.x50@gmail.com>"
    ]

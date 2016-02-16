@@ -2,6 +2,9 @@ filetype plugin indent on
 
 {{$NEXT}}
 
+0.06 2016-02-16T12:20:23Z
+    - enable to pass maxage=0 (murooka) https://github.com/hixi-hyi/p5-Log-LTSV-Instance/pull/6
+
 0.05 2015-12-03T03:25:46Z
     - escape multiple (murooka) https://github.com/hixi-hyi/p5-Log-LTSV-Instance/pull/5
 
